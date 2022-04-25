@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<header>
+  <h1>Campus</h1>
+</header>
+<body>
+  <table>
+    <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Endereco</th>
+      <th>Numero</th>
+      <th>Bairro</th>
+      <th>Cep</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @campus.each do |campu| %>
+      <tr>
+        <td><%= campu.nome %></td>
+        <td><%= campu.endereco %></td>
+        <td><%= campu.numero %></td>
+        <td><%= campu.bairro %></td>
+        <td><%= campu.cep %></td>
+        <td><%= link_to 'Olhar', campu %></td>
+        <td><%= link_to 'Editar', edit_campu_path(campu) %></td>
+        <td><%= link_to 'Destroir', campu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</body>
+
+
+<br>
+
+<%= link_to 'New Campu', new_campu_path %>
