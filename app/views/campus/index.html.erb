@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <header>
-  <h1>Campus</h1>
+  <h1 id="titulo">Campus</h1>
 </header>
 <body>
   <table>
@@ -31,9 +31,11 @@
     <% end %>
     </tbody>
   </table>
+  <br>
+
+  <%= link_to 'New Campu', new_campu_path %>
+
 </body>
 
 
-<br>
 
-<%= link_to 'New Campu', new_campu_path %>

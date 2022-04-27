@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Campu.create!(
+  nome: 'Praia Vermelha A',
+  endereco: 'Rua Passos da Pátria',
+  numero: '149',
+  bairro: 'Gragoatá'
+)
+
+Campu.create!(
+  nome: 'Praia Vermelha B',
+  endereco: 'Avenida Milton Tavares de Souza',
+  numero: '380',
+  bairro: 'Gragoatá'
+)
+

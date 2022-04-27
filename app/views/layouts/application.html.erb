@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aplicacao</title>
+    <title> Sistema de carona da UFF | CARONUFF </title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <header class="header">
+      <a href="/"> <%= image_tag('logo_uff.png', width: 60,  draggable: "true", id: 'logo-uff') %>" </a>
+      <nav class="nav">
+        <ul class="menu">
+          <li> <a href="/about"> Sobre </a></li>
+          <li><a href="https://app.uff.br/hrm/trabalhe_conosco"> Trabalhe conosco </a></li>
+        </ul>
+      </nav>
+    </header>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>

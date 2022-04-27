@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+/*
+ Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+*/
+
+
+body,ul,li,p {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    font-family: Arial;
+    font-size: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+header {
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    text-decoration: none;
+}
+
+.menu{
+    display: flex;
+}
+
+.menu li{
+    margin-left: 10px;
+}
+
+.menu li a{
+    background: rgb(0, 0, 0);
+    display: block;
+    padding: 10px;
+}
+
+
+
