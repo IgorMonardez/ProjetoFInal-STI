@@ -9,17 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <header class="header">
-      <a href="/"> <%= image_tag('logo_uff.png', width: 60,  draggable: "true", id: 'logo-uff') %>" </a>
-      <nav class="nav">
-        <ul class="menu">
-          <li> <a href="/about"> Sobre </a></li>
-          <li><a href="https://app.uff.br/hrm/trabalhe_conosco"> Trabalhe conosco </a></li>
-        </ul>
-      </nav>
-    </header>
+  <%= render 'layouts/header' %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -27,5 +18,6 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <%= yield %>
+  <%= render 'layouts/footer' %>
   </body>
 </html>

@@ -20,3 +20,8 @@ Campu.create!(
   bairro: 'Gragoatá'
 )
 
+User.create!(
+  login: '20935105026',
+  password: 'papaimamae'
+)
+
