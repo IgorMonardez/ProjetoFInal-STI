@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'sessions/new'
   resources :users
-  get 'welcome/index'
-  get 'welcome/about'
   root to: "welcome#index"
   resources :alunos
   resources :campus
+  resources :caronas
   get 'sign_in' => 'sessions#new'
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'

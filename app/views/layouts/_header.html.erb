@@ -3,8 +3,9 @@
   <nav class="nav">
     <ul class="menu">
       <%if logged_in? %>
-        <li><a><%= link_to 'Campus UFF', campu_path %> </a></li>
-        <li><a> <%= link_to 'Usuários', user_path %> </a></li>
+        <li><a><%= link_to 'Campus UFF', campus_path %> </a></li>
+        <li><a> <%= link_to 'Usuários', users_path %> </a></li>
+        <li><a> <%= link_to 'Settings', edit_user_path(current_user) %></a></li>
         <li><a> <%= link_to 'Sair', sign_out_path, method: 'delete' %> </a></li>
       <% else %>
         <li><a> <%= link_to 'Área do admnistrador', sign_in_path %></a></li>

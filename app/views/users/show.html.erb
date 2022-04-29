@@ -1,9 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Login:</strong>
-  <%= @user.login %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<html>
+  <body>
+    <h3> Perfil de <%= @user.name %></h3>
+    <% if current_user == @user %>
+      <ul>
+        <li> <%= link_to "Edite", edit_user_path(current_user) %></li>
+        <li> <%= link_to "Delete", @user,method: :delete %></li>
+      </ul>
+    <% end %>
+  </body>
+</html>

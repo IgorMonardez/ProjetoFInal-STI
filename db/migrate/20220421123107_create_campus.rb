@@ -6,6 +6,7 @@ class CreateCampus < ActiveRecord::Migration[6.1]
       t.integer :numero
       t.string :bairro
       t.integer :cep
+      t.boolean :active, default: true
 
       t.timestamps
     end

@@ -2,3 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-family: Arial, Sans-Serif;
+  font-size: 1.2rem;
+}
+
+td,table,th{
+  text-decoration: none;
+  color: black;
+}
+
+
+.list{
+  display: block;
+  background: rgba(2, 239, 255, 0.47);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.3px);
+  -webkit-backdrop-filter: blur(8.3px);
+  border: 1px solid rgba(2, 239, 255, 0.45);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+

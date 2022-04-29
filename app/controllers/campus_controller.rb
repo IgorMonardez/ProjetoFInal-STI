@@ -49,11 +49,11 @@ class CampusController < ApplicationController
 
   # DELETE /campus/1 or /campus/1.json
   def destroy
-    @campu.destroy
-
+    #    @campu.destroy
+    @campu.update :active => false
     respond_to do |format|
-      format.html { redirect_to campus_url, notice: "Campu was successfully destroyed." }
-      format.json { head :no_content }
+     format.html { redirect_to campus_url, notice: "Campu was successfully destroyed." }
+     format.json { head :no_content }
     end
   end
 

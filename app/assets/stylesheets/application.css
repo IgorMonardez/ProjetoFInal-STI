@@ -30,11 +30,11 @@ body,ul,li,p {
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 header {
-    background: rgb(0, 0, 0);
+    background: #a3f8ff;
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -51,7 +51,7 @@ header {
 }
 
 .menu li a{
-    background: rgb(0, 0, 0);
+    background: #a3f8ff;
     display: block;
     padding: 10px;
 }

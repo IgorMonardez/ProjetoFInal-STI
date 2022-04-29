@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_27_002516) do
+ActiveRecord::Schema.define(version: 2022_04_29_181835) do
 
-  create_table "alunos", force: :cascade do |t|
+  create_table "admin", force: :cascade do |t|
     t.string "nome"
     t.integer "iduff"
-    t.integer "cpf"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
   end
 
   create_table "campus", force: :cascade do |t|
@@ -27,15 +26,38 @@ ActiveRecord::Schema.define(version: 2022_04_27_002516) do
     t.integer "numero"
     t.string "bairro"
     t.integer "cep"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "caronas", force: :cascade do |t|
+    t.string "departure"
+    t.string "arrival"
+    t.integer "price"
+    t.integer "passengers"
+    t.string "comments"
+    t.date "date"
+    t.datetime "hour"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "carona_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["carona_id"], name: "index_points_on_carona_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.integer "login"
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.string "name"
   end
 
+  add_foreign_key "points", "caronas"
 end

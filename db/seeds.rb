@@ -22,6 +22,12 @@ Campu.create!(
 
 User.create!(
   login: '20935105026',
-  password: 'papaimamae'
+  password: 'papaimamae',
+  name: 'Teste1'
 )
 
+User.create!(
+  login: '18141356771',
+  password: 'papaimamae2',
+  name: 'Teste 2'
+)
