@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Departure:</strong>
+  <%= @carona.departure %>
+</p>
+
+<p>
+  <strong>Arrival:</strong>
+  <%= @carona.arrival %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @carona.price %>
+</p>
+
+<p>
+  <strong>Passengers:</strong>
+  <%= @carona.passengers %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @carona.date %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @carona.hour %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @carona.comments %>
+</p>
+
+<%= link_to 'Edit', edit_carona_path(@carona) %> |
+<%= link_to 'Back', caronas_path %>

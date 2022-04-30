@@ -5,9 +5,9 @@ class CreateCaronas < ActiveRecord::Migration[6.1]
       t.string :arrival
       t.integer :price
       t.integer :passengers
-      t.string :comments
       t.date :date
       t.datetime :hour
+      t.string :comments
 
       t.timestamps
     end

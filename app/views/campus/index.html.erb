@@ -3,8 +3,9 @@
 <body>
   <table class="table">
     <% @campus.each do |campu| %>
+      <% if campu.active == true %>
       <tr class="list">
-        <td><a href="/<%=campu.__id__ %> %>">&nbsp;</a></td>
+        <td><%= link_to 'Olhar', campu %> </td>
         <td class="list-contente" id="list-name"><%= campu.nome %></td>
         <td id="list-address"><%= campu.endereco %></td>
         <td class="list-content" id="list-postalnumber"><%= campu.numero %></td>
@@ -13,16 +14,14 @@
         <td class="list-content" id="list-show"></td>
         <td class="list-content" id="list-edit"><%= link_to 'Editar', edit_campu_path(campu) %></td>
         <td class="list-content" id="list-destroy"><%= link_to 'Destroir', campu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
       </tr>
+      <% end %>
     <% end %>
-    <%= link_to 'New Campu', new_campu_path %>
     </tbody>
   </table>
+
   <br>
-
-
-
+  <%= link_to 'New Campu', new_campu_path %>
 </body>
 
 

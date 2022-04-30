@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CampusController < ApplicationController
   before_action :set_campu, only: %i[ show edit update destroy ]
 
@@ -7,8 +8,7 @@ class CampusController < ApplicationController
   end
 
   # GET /campus/1 or /campus/1.json
-  def show
-  end
+  def show; end
 
   # GET /campus/new
   def new
@@ -16,8 +16,7 @@ class CampusController < ApplicationController
   end
 
   # GET /campus/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /campus or /campus.json
   def create
@@ -25,7 +24,7 @@ class CampusController < ApplicationController
 
     respond_to do |format|
       if @campu.save
-        format.html { redirect_to campu_url(@campu), notice: "Campu was successfully created." }
+        format.html { redirect_to campu_url(@campu), notice: 'Campu was successfully created.' }
         format.json { render :show, status: :created, location: @campu }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +37,7 @@ class CampusController < ApplicationController
   def update
     respond_to do |format|
       if @campu.update(campu_params)
-        format.html { redirect_to campu_url(@campu), notice: "Campu was successfully updated." }
+        format.html { redirect_to campu_url(@campu), notice: 'Campu was successfully updated.' }
         format.json { render :show, status: :ok, location: @campu }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,10 +48,10 @@ class CampusController < ApplicationController
 
   # DELETE /campus/1 or /campus/1.json
   def destroy
-    #    @campu.destroy
-    @campu.update :active => false
+    #@campu.destroy
+    @campu.update active: false
     respond_to do |format|
-     format.html { redirect_to campus_url, notice: "Campu was successfully destroyed." }
+     format.html { redirect_to campus_url, notice: 'Campu was successfully destroyed.' }
      format.json { head :no_content }
     end
   end

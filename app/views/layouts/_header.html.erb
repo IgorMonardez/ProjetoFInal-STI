@@ -1,14 +1,15 @@
 <header class="header">
-  <a href="/"> <%= image_tag('logo_uff.png', width: 60,  draggable: "true", id: 'logo-uff',alias: "Logo da uff") %>" </a>
+  <a href="/"> <%= image_tag('logo_uff.png', width: 30,  draggable: "true", id: 'logo-uff',alias: "Logo da uff") %>" </a>
   <nav class="nav">
     <ul class="menu">
       <%if logged_in? %>
+        <li><a> <%= link_to 'Lista de caronas', caronas_path %></a></li>
         <li><a><%= link_to 'Campus UFF', campus_path %> </a></li>
         <li><a> <%= link_to 'Usuários', users_path %> </a></li>
         <li><a> <%= link_to 'Settings', edit_user_path(current_user) %></a></li>
         <li><a> <%= link_to 'Sair', sign_out_path, method: 'delete' %> </a></li>
       <% else %>
-        <li><a> <%= link_to 'Área do admnistrador', sign_in_path %></a></li>
+        <li><a> <%= link_to 'User', sign_in_path %></a></li>
       <% end %>
     </ul>
   </nav>

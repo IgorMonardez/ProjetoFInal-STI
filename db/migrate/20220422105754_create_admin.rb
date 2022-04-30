@@ -1,4 +1,4 @@
-class CreateAlunos < ActiveRecord::Migration[6.1]
+class CreateAdmin < ActiveRecord::Migration[6.1]
   def change
     create_table :admin do |t|
       t.string :nome

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Caronas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Departure</th>
+      <th>Arrival</th>
+      <th>Price</th>
+      <th>Passengers</th>
+      <th>Date</th>
+      <th>Hour</th>
+      <th>Comments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caronas.each do |carona| %>
+      <tr>
+        <td><%= carona.departure %></td>
+        <td><%= carona.arrival %></td>
+        <td><%= carona.price %></td>
+        <td><%= carona.passengers %></td>
+        <td><%= carona.date %></td>
+        <td><%= carona.hour %></td>
+        <td><%= carona.comments %></td>
+        <td><%= link_to 'Show', carona %></td>
+        <td><%= link_to 'Edit', edit_carona_path(carona) %></td>
+        <td><%= link_to 'Destroy', carona, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Carona', new_carona_path %>
