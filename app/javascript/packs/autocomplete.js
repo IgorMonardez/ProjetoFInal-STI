@@ -1,24 +1,16 @@
-import 'js-autocomplete/auto-complete.css'
-import autocomplete from 'js-autocomplete'
+import 'jquery'
 
-const autocompleteSearch = function() {
-    const skills = JSON.parse(document.getElementById('search-data').dataset.users)
-    const searchInput = document.getElementById('q')
-
-    if(skills && searchInput) {
-        new autocomplete({
-            selector: searchInput,
-            minChars: 1,
-            source: function (term,suggest){
-                term = term.toLowerCase();
-                const choices = skills;
-                const matches = [20];
-                for(let i = 0; i < choices.length; i++)
-                    if(~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
-                suggest(matches);
+$(document).ready(function (){
+    $("#search-input").keyup(function (){
+        $.ajax({
+            type: "POST",
+            url: "search",
+            data:'name='+$(this).val(),
+            sucess: function (data){
+                $("#suggestion-box").show();
+                $("#suggestion-box").html(data);
+                $("#search-input").css("background","#FFF");
             }
         });
-    }
-};
-
-export { autocompleteSearch }
+    });
+});

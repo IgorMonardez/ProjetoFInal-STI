@@ -1,0 +1,2 @@
+class SearchCarona < ApplicationRecord
+end

@@ -1,5 +1,6 @@
+# frozen_string_literal: true
 class CaronasController < ApplicationController
-  before_action :set_carona, only: %i[ show edit update destroy ]
+  before_action :set_carona, only: %i[show edit update destroy]
 
   # GET /caronas or /caronas.json
   def index
@@ -7,8 +8,7 @@ class CaronasController < ApplicationController
   end
 
   # GET /caronas/1 or /caronas/1.json
-  def show
-  end
+  def show; end
 
   # GET /caronas/new
   def new
@@ -16,8 +16,7 @@ class CaronasController < ApplicationController
   end
 
   # GET /caronas/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /caronas or /caronas.json
   def create
@@ -25,7 +24,7 @@ class CaronasController < ApplicationController
 
     respond_to do |format|
       if @carona.save
-        format.html { redirect_to carona_url(@carona), notice: "Carona was successfully created." }
+        format.html { redirect_to carona_url(@carona), notice: 'Carona was successfully created.' }
         format.json { render :show, status: :created, location: @carona }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +37,7 @@ class CaronasController < ApplicationController
   def update
     respond_to do |format|
       if @carona.update(carona_params)
-        format.html { redirect_to carona_url(@carona), notice: "Carona was successfully updated." }
+        format.html { redirect_to carona_url(@carona), notice: 'Carona was successfully updated.' }
         format.json { render :show, status: :ok, location: @carona }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -51,19 +50,20 @@ class CaronasController < ApplicationController
   def destroy
     @carona.destroy
     respond_to do |format|
-      format.html { redirect_to caronas_url, notice: "Carona was successfully destroyed." }
+      format.html { redirect_to caronas_url, notice: 'Carona was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_carona
-      @carona = Carona.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def carona_params
-      params.require(:carona).permit(:departure, :arrival, :price, :passengers, :date, :hour, :comments)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_carona
+    @carona = Carona.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def carona_params
+    params.require(:carona).permit(:departure, :arrival, :price, :passengers, :date, :hour, :comments)
+  end
 end

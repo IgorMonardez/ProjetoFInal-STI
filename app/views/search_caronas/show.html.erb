@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Departure:</strong>
+  <%= @search_carona.departure %>
+</p>
+
+<p>
+  <strong>Arrival:</strong>
+  <%= @search_carona.arrival %>
+</p>
+
+<%= link_to 'Edit', edit_search_carona_path(@search_carona) %> |
+<%= link_to 'Back', search_caronas_path %>

@@ -12,6 +12,7 @@
  *= require easy-autocomplete
  *= require_tree .
  *= require_self
+ *= require bootstrap/dist/css/bootstrap
  */
 /*
  Place all the styles related to the Welcome controller here.

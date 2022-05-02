@@ -2,9 +2,10 @@
 
 <h1>Users</h1>
 
-  <%= form_tag(users_path, method: 'get', class: "form-autocomplete") do %>
+  <%= form_with(url: search_path, method: 'get', class: "form-autocomplete", local: false) do |f| %>
     <div id="search-data" class="form-search search-data" data-user="<%= @users.to_json %>">
-      <%= text_field_tag :q, nil, autocompleate: :off, class: "form-control search-input", placeholder: 'Search by programming language...' %>
+      <%= f.text_field :name,  class: "form-control search-input", placeholder: 'Procure por nome...' %>
+      <div id="suggestion-box"></div>
       <%= submit_tag "Search", class: "btn btn-primary btn-home" %>
     </div>
   <% end %>
@@ -17,13 +18,15 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.login %></td>
-        <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if user.active == true %>
+        <tr>
+          <td><%= user.login %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to 'Show', user %></td>
+          <td><%= link_to 'Edit', edit_user_path(user) %></td>
+          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -31,3 +34,7 @@
 <br>
 
 <%= link_to 'New User', new_user_path %>
+
+<script>
+  autoComplete()
+</script>

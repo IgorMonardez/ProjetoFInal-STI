@@ -1,17 +1,19 @@
+# frozen_string_literal: true
 class UsersController < ApplicationController
   before_action :force_json, only: :search
   before_action :set_user, only: %i[show edit update destroy]
-  before_action :authorize, except: [:new, :create]
-  before_action :correct_user?, only: [:edit, :update, :destroy]
+  before_action :authorize, except: %i[new create]
+  before_action :correct_user?, only: %i[edit update destroy]
 
 
   # GET /users or /users.json
   def index
-    @users = User.search(params[:search])
-    @users = User.pluck(:name).sort
-    @users = User.pluck(:login).sort
+    @users = User.all
   end
 
+  def search
+    @users = User.where(name: params[:name])
+  end
   # GET /users/1 or /users/1.json
   def show
     @users = User.find(params[:id])
@@ -21,7 +23,6 @@ class UsersController < ApplicationController
   def new
     @users = User.new
   end
-
   # GET /users/1/edit
   def edit
     set_user
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   def create
     set_user
     if @user.save
-      redirect_to @user, notice: "administrador"
+      redirect_to @user, notice: 'Usuário'
     else
       render action: :new
     end
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
     set_user
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,11 +55,11 @@ class UsersController < ApplicationController
   # DELETE /users/1 or /users/1.json
   def destroy
     set_user
-    @user.destroy
+    @user.update active: false
     sign_out
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "User was successfully destroyed." }
+      format.html { redirect_to root_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,9 +77,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:login)
+    params.require(:user).permit(:login, :name)
   end
-
-
 
 end

@@ -23,7 +23,8 @@ Campu.create!(
 User.create!(
   login: '20935105026',
   password: 'papaimamae',
-  name: 'Teste1'
+  name: 'Teste1',
+  admin: true
 )
 
 User.create!(
@@ -31,3 +32,16 @@ User.create!(
   password: 'papaimamae2',
   name: 'Teste 2'
 )
+
+
+30.times do
+  name  = Faker::Name.name
+  names = name.split()[0] + name.split()[1]
+  login = Faker::IDNumber.brazilian_id
+  User.create!(
+    name: name,
+    login: login,
+    password: '123456',
+    uffmail: names + '@id.uff.br'
+  )
+end
