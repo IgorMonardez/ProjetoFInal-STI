@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_29_190924) do
+ActiveRecord::Schema.define(version: 2022_05_02_164718) do
 
   create_table "admin", force: :cascade do |t|
     t.string "nome"
@@ -32,22 +32,31 @@ ActiveRecord::Schema.define(version: 2022_04_29_190924) do
   end
 
   create_table "caronas", force: :cascade do |t|
+    t.integer "users_id", null: false
     t.string "departure"
     t.string "arrival"
     t.integer "price"
     t.integer "passengers"
-    t.date "date"
-    t.datetime "hour"
+    t.datetime "date"
     t.string "comments"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["users_id"], name: "index_caronas_on_users_id"
   end
 
   create_table "points", force: :cascade do |t|
     t.integer "carona_id", null: false
+    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["carona_id"], name: "index_points_on_carona_id"
+  end
+
+  create_table "search_caronas", force: :cascade do |t|
+    t.string "departure"
+    t.string "arrival"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

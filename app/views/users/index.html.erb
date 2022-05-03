@@ -4,9 +4,9 @@
 
   <%= form_with(url: search_path, method: 'get', class: "form-autocomplete", local: false) do |f| %>
     <div id="search-data" class="form-search search-data" data-user="<%= @users.to_json %>">
-      <%= f.text_field :name,  class: "form-control search-input", placeholder: 'Procure por nome...' %>
+      <%= f.text_field :name,  class: "form-control search-input", placeholder: 'Procure por nome...', javascript_cdata_section: "data-behavior autocomplete" %>
       <div id="suggestion-box"></div>
-      <%= submit_tag "Search", class: "btn btn-primary btn-home" %>
+      <%= f.submit_tag "Search", class: "btn btn-primary btn-home" %>
     </div>
   <% end %>
 <table>

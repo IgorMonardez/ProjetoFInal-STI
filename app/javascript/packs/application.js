@@ -16,3 +16,6 @@ Turbolinks.start()
 ActiveStorage.start()
 require("@rails/ujs").start()
 require(channels)
+
+require("jquery")
+require("easy-autocomplete")

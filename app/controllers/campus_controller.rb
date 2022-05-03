@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 class CampusController < ApplicationController
-  before_action :set_campu, only: %i[ show edit update destroy ]
+  before_action :set_campu, only: %i[show edit update destroy]
 
   # GET /campus or /campus.json
   def index
@@ -48,22 +49,30 @@ class CampusController < ApplicationController
 
   # DELETE /campus/1 or /campus/1.json
   def destroy
-    #@campu.destroy
     @campu.update active: false
     respond_to do |format|
-     format.html { redirect_to campus_url, notice: 'Campu was successfully destroyed.' }
-     format.json { head :no_content }
+      format.html { redirect_to campus_url, notice: 'Campu was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def reactive
+    @campu.update active: true
+    respond_to do |format|
+      format.html { redirect_to campus_url, notice: 'Campu was successfully reactived.' }
+      format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_campu
-      @campu = Campu.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def campu_params
-      params.require(:campu).permit(:nome, :endereco, :numero, :bairro, :cep)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_campu
+    @campu = Campu.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def campu_params
+    params.require(:campu).permit(:nome, :endereco, :numero, :bairro, :cep)
+  end
 end

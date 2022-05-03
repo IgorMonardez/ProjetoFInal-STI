@@ -3,19 +3,23 @@
 <body>
   <table class="table">
     <% @campus.each do |campu| %>
-      <% if campu.active == true %>
-      <tr class="list">
-        <td><%= link_to 'Olhar', campu %> </td>
-        <td class="list-contente" id="list-name"><%= campu.nome %></td>
-        <td id="list-address"><%= campu.endereco %></td>
-        <td class="list-content" id="list-postalnumber"><%= campu.numero %></td>
-        <td class="list-content" id="neighbour"><%= campu.bairro %></td>
-        <td class="list-content" id="list-postalcode"><%= campu.cep %></td>
-        <td class="list-content" id="list-show"></td>
-        <td class="list-content" id="list-edit"><%= link_to 'Editar', edit_campu_path(campu) %></td>
-        <td class="list-content" id="list-destroy"><%= link_to 'Destroir', campu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
+        <tr class="list">
+          <td><%= link_to 'Olhar', campu %> </td>
+          <td class="list-contente" id="list-name"><%= campu.nome %></td>
+          <td id="list-address"><%= campu.endereco %></td>
+          <td class="list-content" id="list-postalnumber"><%= campu.numero %></td>
+          <td class="list-content" id="neighbour"><%= campu.bairro %></td>
+          <td class="list-content" id="list-postalcode"><%= campu.cep %></td>
+          <td class="list-content" id="list-show"></td>
+          <td class="list-content" id="list-edit"><%= link_to 'Editar', edit_campu_path(campu) %></td>
+          <% if campu.active == true %>
+            <td class="list-content" id="list-destroy"><%= link_to 'Destroir', campu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% else %>
+            <td class="list-inactive" id="list-destroy"><%= link_to 'Reativar', campu, method: :reactive, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+
+
     <% end %>
     </tbody>
   </table>

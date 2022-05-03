@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 class CaronasController < ApplicationController
   before_action :set_carona, only: %i[show edit update destroy]
+  before_action :require_user
+
 
   # GET /caronas or /caronas.json
   def index
